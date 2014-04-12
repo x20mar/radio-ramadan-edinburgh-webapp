@@ -3,49 +3,89 @@
 <!-- define angular app -->
 <html ng-app="rreApp">
 
-<head>
-  <!-- SCROLLS -->
-  <link rel="stylesheet" href="libs/bootstrap.min.css" />
-  <link rel="stylesheet" href="libs/font-awesome-4.0.3/css/font-awesome.min.css" />
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Radio Ramadan Edinburgh</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- SCROLLS -->
+        <link rel="stylesheet" href="libs/bootstrap.min.css" />
+        <link rel="stylesheet" href="libs/font-awesome-4.0.3/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="libs/angularjs-1.2.16/angular-snap.min.css" />
+        <link rel="stylesheet" href="app.css" />
 
-  <!-- SPELLS -->
-  <script src="libs/snap.min.js"></script>
-  <script src="libs/angularjs-1.2.16/angular.min.js"></script>
-  <script src="libs/angularjs-1.2.16/angular-route.min.js"></script>
-  <script src="libs/angularjs-1.2.16/angular-snap.min.js"></script>
-  <script src="script.js"></script>
-</head>
+        <!-- SPELLS -->
+        <script src="libs/snap.min.js"></script>
+        <script src="libs/angularjs-1.2.16/angular.min.js"></script>
+        <script src="libs/angularjs-1.2.16/angular-route.min.js"></script>
+        <script src="libs/angularjs-1.2.16/angular-snap.min.js"></script>
+        <script src="script.js"></script>
+    </head>
 
-<!-- define angular controller -->
-<body ng-controller="mainController">
+    <!-- define angular controller -->
+    <body ng-controller="mainController">
 
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <div class="navbar-brand">{{Page.title()}}</div>
-      </div>
+        <div id="shelf-1" snap-drawer>
+            <h1>Menu</h1>
+            <ul class="nav nav-pills nav-stacked">
+                <li snap-close><a href="#"><i class="fa fa-youtube-play"></i> Live</a></li>
+                <li snap-close><a href="#listenagain"><i class="fa fa-music"></i> Listen Again</a></li>
+                <li snap-close><a href="#schedule"><i class="fa fa-calendar-o"></i> Schedule</a></li>
+                <!-- <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a></li> -->
+        </div>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-youtube-play"></i> Live</a></li>
-        <li><a href="#listenagain"><i class="fa fa-music"></i> Listen Again</a></li>
-        <li><a href="#schedule"><i class="fa fa-calendar-o"></i> Schedule</a></li>
-        <!-- <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a></li> -->
-      </ul>
-    </div>
-  </nav>
+        <div id="content" class="scrollable" snap-content snap-options="snapOpts">
 
-  <div id="main">
-  
-    <!-- angular templating -->
-		<!-- this is where content will be injected -->
-    <div ng-view></div>
-    
-  </div>
-  
-  <footer class="text-center">
-    <p>Create by <a href="http://omara.li">Omar Ali</a> for Radio Ramadan Edinburgh</p>
-  </footer>
-  
-</body>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <div class="navbar-brand"><button type="button" class="btn btn-default fa fa-bars" snap-toggle="left"></button> {{Page.title()}}</div>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="main">
+
+                <!-- angular templating -->
+                <!-- this is where content will be injected -->
+                <div ng-view></div>
+
+            </div>
+
+            <footer class="text-center">
+                <p>Create by <a href="http://omara.li">Omar Ali</a> for Radio Ramadan Edinburgh</p>
+            </footer>
+
+        </div>    
+    </body>
+
+    <script type="text/ng-template" id="home.html">
+        <div class="jumbotron text-center">
+            <h1>On Now: Program 1</h1>
+
+            <p>{{ message }}</p>
+            <audio controls>
+                <source src="http://jplayer.org/audio/mp3/Miaow-07-Bubble.mp3" type="audio/mpeg" />
+                <em>Sorry, your browser doesn't support HTML5 audio.</em>
+            </audio>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="listenagain.html">
+        <div class="jumbotron text-center">
+        <h1>Listen Again</h1>
+
+        <p>{{ message }}</p>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="schedule.html">
+        <div class="jumbotron text-center">
+        <h1>Schedule</h1>
+
+        <p>{{ message }}</p>
+        </div>
+    </script>
 
 </html>
