@@ -1,5 +1,5 @@
 // create the module and name it rreApp
-var rreApp = angular.module('rreApp', ['ngRoute', 'snap']);
+var rreApp = angular.module('rreApp', ['ngRoute', 'snap', 'ui.calendar', 'ui.bootstrap']);
 
 // configure our routes
 rreApp.config(function($routeProvider) {
@@ -42,11 +42,11 @@ rreApp.controller('mainController', function($scope, Page) {
     $scope.Page = Page;
     Page.setTitle('Live');
     $scope.message = 'On Next:Program 2';
-    
+
     $scope.snapOpts = {
-      disable: 'right'
+        disable: 'right'
     };
-    
+
 });
 
 rreApp.controller('listenagainController', function($scope, Page) {
@@ -56,5 +56,33 @@ rreApp.controller('listenagainController', function($scope, Page) {
 
 rreApp.controller('scheduleController', function($scope, Page) {
     Page.setTitle('Schedule');
+
+    $scope.eventSource = {
+        url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+        className: 'gcal-event', // an option!
+        currentTimezone: 'America/Chicago' // an option!
+    };
+    /* event source that contains custom events on the scope */
+    $scope.events = [];
+    /* event source that calls a function on every view switch */
+    $scope.eventsF = function(start, end, callback) {
+        var events = [];
+        callback(events);
+    };
+
+    /* config object */
+    $scope.uiConfig = {
+        calendar: {
+            editable: true,
+            defaultView: 'agendaDay',
+            header: {
+                left: 'title',
+                center: '',
+                right: 'today prev,next'
+            }
+        }
+    };
+    /* event sources array*/
+    $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.message = 'See what shows are comming up on Radio Ramadan';
 });

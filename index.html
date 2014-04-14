@@ -10,10 +10,6 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- SCROLLS -->
-        <link rel="stylesheet" href="libs/bootstrap.min.css" />
-        <link rel="stylesheet" href="libs/font-awesome-4.0.3/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="libs/angularjs-1.2.16/angular-snap.min.css" />
-        <link rel="stylesheet" href="libs/fullcalendar-1.6.4/fullcalendar.css" />
         <link rel="stylesheet" href="app.css" />
 
         <!-- SPELLS -->
@@ -23,6 +19,7 @@
         <script src="libs/fullcalendar-1.6.4/gcal.js"></script>
         <script src="libs/snap.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular.min.js"></script>
+        <script src="libs/angularjs-1.2.16/angular-bootstrap.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-route.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-snap.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-calendar.js"></script>
@@ -91,6 +88,7 @@
         <h1>Schedule</h1>
 
         <p>{{ message }}</p>
+        <div class="calendar" ng-model="eventSources" calendar="rreCalendar" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>    
         </div>
     </script>
 
