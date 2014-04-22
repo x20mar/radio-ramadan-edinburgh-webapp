@@ -18,12 +18,13 @@
         <script src="libs/fullcalendar-1.6.4/fullcalendar.min.js"></script>
         <script src="libs/fullcalendar-1.6.4/gcal.js"></script>
         <script src="libs/snap.min.js"></script>
-        <script src="libs/audio5.min.js"></script>
+        <script src="libs/audio5js/audio5.js"></script>
         <script src="libs/angularjs-1.2.16/angular.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-bootstrap.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-route.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-snap.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-calendar.js"></script>
+        <script src="libs/angularjs-1.2.16/angular-audio.js"></script>
         <script src="script.js"></script>
     </head>
 
@@ -69,10 +70,7 @@
             <h1>On Now: Program 1</h1>
 
             <p>{{ message }}</p>
-            <audio controls>
-                <source src="http://jplayer.org/audio/mp3/Miaow-07-Bubble.mp3" type="audio/mpeg" />
-                <em>Sorry, your browser doesn't support HTML5 audio.</em>
-            </audio>
+            <button ng-click="player.playPause()">Play/Pause</button>
         </div>
     </script>
 
