@@ -1,5 +1,5 @@
 // create the module and name it rreApp
-var rreApp = angular.module('rreApp', ['ngRoute', 'snap', 'ui.calendar', 'ui.bootstrap', 'Audio5']);
+var rreApp = angular.module('rreApp', ['ngRoute', 'snap', 'ui.calendar', 'ui.bootstrap', 'mediaPlayer']);
 
 // configure our routes
 rreApp.config(function($routeProvider) {
@@ -37,7 +37,7 @@ rreApp.factory('Page', function() {
 });
 
 // create the controller and inject Angular's $scope
-rreApp.controller('mainController', function($scope, Page, AudioService) {
+rreApp.controller('mainController', function($scope, Page) {
     // create a message to display in our view
     $scope.Page = Page;
     Page.setTitle('Live');
@@ -47,16 +47,11 @@ rreApp.controller('mainController', function($scope, Page, AudioService) {
         disable: 'right'
     };
 
-    //bind AudioService to scope
-    $scope.player = AudioService;
-    //Load the song, every event, class method and Instance attribute from audio5js are accessible from the template
-    $scope.player.load('http://danosongs.com/music/danosongs.com-orb-of-envisage.mp3');
-
-    //example of event binding
-    $scope.player.on('timeupdate', function() {
-        $scope.$apply();
+    $scope.audioPlaylist = [];
+    $scope.audioPlaylist.push({
+        src: 'http://danosongs.com/music/danosongs.com-orb-of-envisage.mp3',
+        type: 'audio/mp3'
     });
-
 });
 
 rreApp.controller('listenagainController', function($scope, Page) {

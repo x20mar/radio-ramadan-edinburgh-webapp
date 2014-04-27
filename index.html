@@ -18,13 +18,12 @@
         <script src="libs/fullcalendar-1.6.4/fullcalendar.min.js"></script>
         <script src="libs/fullcalendar-1.6.4/gcal.js"></script>
         <script src="libs/snap.min.js"></script>
-        <script src="libs/audio5js/audio5.js"></script>
         <script src="libs/angularjs-1.2.16/angular.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-bootstrap.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-route.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-snap.min.js"></script>
         <script src="libs/angularjs-1.2.16/angular-calendar.js"></script>
-        <script src="libs/angularjs-1.2.16/angular-audio.js"></script>
+        <script src="libs/angularjs-1.2.16/angular-media-player.min.js"></script>
         <script src="script.js"></script>
     </head>
 
@@ -70,7 +69,10 @@
             <h1>On Now: Program 1</h1>
 
             <p>{{ message }}</p>
-            <button ng-click="player.playPause()">Play/Pause</button>
+            <audio media-player="mediaPlayer" playlist="audioPlaylist"></audio>
+            <button class="btn" ng-click="mediaPlayer.playPause()">
+                <i class="fa" ng-class="{ 'fa-pause': mediaPlayer.playing, 'fa-play': !mediaPlayer.playing }"></i>
+            </button>
         </div>
     </script>
 
