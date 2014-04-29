@@ -49,8 +49,8 @@ rreApp.controller('mainController', function($scope, Page) {
 
     $scope.audioPlaylist = [];
     $scope.audioPlaylist.push({
-        src: 'http://danosongs.com/music/danosongs.com-orb-of-envisage.mp3',
-        type: 'audio/mp3'
+        src: RRE.config.AUDIO_SRC,
+        type: RRE.config.AUDIO_FORMAT
     });
 });
 
@@ -63,9 +63,9 @@ rreApp.controller('scheduleController', function($scope, Page) {
     Page.setTitle('Schedule');
 
     $scope.eventSource = {
-        url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+        url: RRE.config.CAL_SRC,
         className: 'gcal-event', // an option!
-        currentTimezone: 'America/Chicago' // an option!
+        currentTimezone: RRE.config.CAL_TIMEZONE // an option!
     };
     /* event source that contains custom events on the scope */
     $scope.events = [];
