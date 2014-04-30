@@ -34,11 +34,11 @@
     <body ng-controller="mainController">
 
         <div id="shelf-1" snap-drawer>
-            <h1>Menu</h1>
+            <h1>{{Page.menu().MENU}}</h1>
             <ul class="nav nav-pills nav-stacked">
-                <li snap-close><a href="#"><i class="fa fa-youtube-play"></i> Live</a></li>
-                <li snap-close><a href="#listenagain"><i class="fa fa-music"></i> Listen Again</a></li>
-                <li snap-close><a href="#schedule"><i class="fa fa-calendar-o"></i> Schedule</a></li>
+                <li snap-close><a href="#"><i class="fa fa-youtube-play"></i> {{Page.menu().LIVE}}</a></li>
+                <li snap-close><a href="#listenagain"><i class="fa fa-music"></i> {{Page.menu().LISTEN_AGAIN}}</a></li>
+                <li snap-close><a href="#schedule"><i class="fa fa-calendar-o"></i> {{Page.menu().SCHEDULE}}</a></li>
                 <!-- <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a></li> -->
         </div>
 
@@ -69,11 +69,11 @@
 
     <script type="text/ng-template" id="home.html">
         <div class="jumbotron text-center">
-            <h1>On Now: Program 1</h1>
+            <h1>{{ onNow }}</h1>
 
-            <p>{{ message }}</p>
+            <p>{{ onNext }}</p>
             <audio media-player="mediaPlayer" playlist="audioPlaylist"></audio>
-            <button class="btn" ng-click="mediaPlayer.playPause()">
+            <button class="btn btn-lg btn-primary btn-block" ng-click="mediaPlayer.playPause()">
                 <i class="fa" ng-class="{ 'fa-pause': mediaPlayer.playing, 'fa-play': !mediaPlayer.playing }"></i>
             </button>
         </div>
@@ -81,7 +81,7 @@
 
     <script type="text/ng-template" id="listenagain.html">
         <div class="jumbotron text-center">
-        <h1>Listen Again</h1>
+        <h1>{{Page.title()}}</h1>
 
         <p>{{ message }}</p>
         </div>
@@ -89,7 +89,7 @@
 
     <script type="text/ng-template" id="schedule.html">
         <div class="jumbotron text-center">
-        <h1>Schedule</h1>
+        <h1>{{Page.title()}}</h1>
 
         <p>{{ message }}</p>
         <div class="calendar" ng-model="eventSources" calendar="rreCalendar" config="uiConfig.calendar" ui-calendar="uiConfig.calendar"></div>    
