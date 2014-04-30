@@ -25,7 +25,7 @@ rreApp.config(function($routeProvider) {
 });
 
 rreApp.factory('Page', function() {
-    var title = 'Live';
+    var title = RRE.language.title.LIVE;
     return {
         title: function() {
             return title;
@@ -40,7 +40,7 @@ rreApp.factory('Page', function() {
 rreApp.controller('mainController', function($scope, Page) {
     // create a message to display in our view
     $scope.Page = Page;
-    Page.setTitle('Live');
+    Page.setTitle(RRE.language.title.LIVE);
     $scope.message = 'On Next:Program 2';
 
     $scope.snapOpts = {
@@ -55,12 +55,12 @@ rreApp.controller('mainController', function($scope, Page) {
 });
 
 rreApp.controller('listenagainController', function($scope, Page) {
-    Page.setTitle('Listen Again');
+    Page.setTitle(RRE.language.title.LISTEN_AGAIN);
     $scope.message = 'Listen Again to past shows';
 });
 
 rreApp.controller('scheduleController', function($scope, Page) {
-    Page.setTitle('Schedule');
+    Page.setTitle(RRE.language.title.SCHEDULE);
 
     $scope.eventSource = {
         url: RRE.config.CAL_SRC,
