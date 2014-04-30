@@ -40,3 +40,5 @@ html, body, #content {
     margin-left: 0px;
     margin-right: 0px;
 }
+
+.anim-popin { -webkit-animation: popin .1s; }

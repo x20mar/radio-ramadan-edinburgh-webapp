@@ -1,5 +1,5 @@
 // create the module and name it rreApp
-var rreApp = angular.module('rreApp', ['ngRoute', 'snap', 'ui.calendar', 'ui.bootstrap', 'mediaPlayer']);
+var rreApp = angular.module('rreApp', ['ngRoute', 'snap', 'ui.calendar', 'ui.bootstrap', 'mediaPlayer', 'plangular']);
 
 // configure our routes
 rreApp.config(function($routeProvider) {
