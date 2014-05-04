@@ -2,7 +2,6 @@
 @import url("../libs/font-awesome-4.0.3/css/font-awesome.min.css");
 @import url("../libs/angularjs-1.2.16/angular-snap.min.css");
 @import url("../libs/fullcalendar-1.6.4/fullcalendar.css");
-
 html, body, #content {
   height: 100%;
   width: 100%;

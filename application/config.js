@@ -6,4 +6,5 @@ namespacer(window, {RRE: {config: {}}});
     namespace.AUDIO_FORMAT = "audio/mp3";
     namespace.CAL_SRC = "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic";
     namespace.CAL_TIMEZONE = "America/Chicago";
+    namespace.SOUNDCLOUD_SET = "http://soundcloud.com/jxnblk/sets/magic-summer";
 })(RRE.config, jQuery);

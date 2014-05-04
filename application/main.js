@@ -62,6 +62,7 @@ rreApp.controller('mainController', function($scope, Page) {
 rreApp.controller('listenagainController', function($scope, Page) {
     Page.setTitle(RRE.language.title.LISTEN_AGAIN);
     $scope.message = RRE.language.message.LISTEN_AGAIN_TO_PAST_SHOWS;
+    $scope.soundcloud = RRE.config.SOUNDCLOUD_SET;
 });
 
 rreApp.controller('scheduleController', function($scope, Page) {

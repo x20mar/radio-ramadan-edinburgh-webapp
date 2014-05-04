@@ -74,8 +74,11 @@
 
         <p>{{ onNext }}</p>
         <audio media-player="mediaPlayer" playlist="audioPlaylist"></audio>
-        <button class="btn btn-lg btn-primary btn-block" ng-click="mediaPlayer.playPause()">
-        <i class="fa" ng-class="{ 'fa-pause': mediaPlayer.playing, 'fa-play': !mediaPlayer.playing }"></i>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="mediaPlayer.play()" ng-show="!mediaPlayer.playing">
+            <i class="fa fa-play"></i>
+        </button>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="mediaPlayer.stop()" ng-show="mediaPlayer.playing">
+            <i class="fa fa-stop"></i>
         </button>
         </div>
     </script>
@@ -84,43 +87,44 @@
         <div class="jumbotron text-center">
         <h1>{{Page.title()}}</h1>
 
-        <p>{{ message }}</p>
-        <section plangular data-src="http://soundcloud.com/jxnblk/sets/magic-summer" class="measure-wide wrap mb4 oh rounded">
-        <div class="p-responsive mobile-center">
-        <p class="p mb0">{{ playlist.user.username }}</p>
-        <h1 class="h1">{{ playlist.title }}</h1>
-        <div class="clearfix">
-        <div class="left mr1 mobile-block">
-        <a href="" ng-click="player.previous(playlist)" class="btn btn-link ">
-        <i class="fa fa-step-backward"></i>
-        </a>
-        <a href="" ng-click="player.playPlaylist(playlist)" ng-hide="player.tracks == playlist.tracks && player.playing" class="btn btn-link anim-popin">
-        <i class="fa fa-play"></i>
-        </a>
-        <a href="" ng-click="player.pause()" ng-show="player.tracks == playlist.tracks && player.playing" class="btn btn-link anim-popin">
-        <i class="fa fa-pause"></i>
-        </a>
-        <a href="" ng-click="player.next(playlist)" class="btn btn-link ">
-        <i class="fa fa-step-forward"></i>
-        </a>
-        </div>
-        <div class="oh mobile-block">
-        <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="{{ currentTime / duration}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ currentTime / duration}}%;" ng-click="seekTo($event)">
-        <span class="sr-only">{{ currentTime / duration}}% Complete</span>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        <div class="p1 clearfix">
-        <ol class="ol mid-gray">
-        <li ng-repeat="track in playlist.tracks" class="ml2"><a href="" ng-click="player.play(playlist.tracks, $index)" class="block" ng-class="{ '': (player.playing || player.paused) != track, 'blue': (player.playing || player.paused) == track }">
-        <strong>{{ track.user.username }}</strong> - {{ track.title }}
-        </a></li>
-        </ol>
-        <a ng-href="{{ playlist.permalink_url }}" target="_blank" class="right small mid-gray">View on SoundCloud</a>
-        </div>
+        <section plangular data-src="http://soundcloud.com/jxnblk/sets/magic-summer" class="panel panel-default measure-wide wrap mb4 oh rounded">
+            <div class="p-responsive mobile-center">
+                <div class="panel-heading">{{ message }}</div>
+                <div class="panel-body">
+                    <div class="clearfix">
+                        <div class="left mr1 mobile-block">
+                            <a href="" ng-click="player.previous(playlist)" class="btn btn-link ">
+                                <i class="fa fa-step-backward"></i>
+                            </a>
+                            <a href="" ng-click="player.playPlaylist(playlist)" ng-hide="player.tracks == playlist.tracks && player.playing" class="btn btn-link anim-popin">
+                                <i class="fa fa-play"></i>
+                            </a>
+                            <a href="" ng-click="player.pause()" ng-show="player.tracks == playlist.tracks && player.playing" class="btn btn-link anim-popin">
+                                <i class="fa fa-pause"></i>
+                            </a>
+                            <a href="" ng-click="player.next(playlist)" class="btn btn-link ">
+                                <i class="fa fa-step-forward"></i>
+                            </a>
+                        </div>
+                        <div class="oh mobile-block">
+                            <div class="progress progress-striped active">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="{{ currentTime / duration * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ currentTime / duration * 100}}%;" ng-click="seekTo($event)">
+                                    {{ currentTime / duration * 100 | number:0}}%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="list-group">
+                    <li class="list-group-item m12" ng-repeat="track in playlist.tracks"><a href="" ng-click="player.play(playlist.tracks, $index)" ng-class="{ '': (player.playing || player.paused) != track, 'list-group-item active': (player.playing || player.paused) == track }">
+                        <strong>{{ track.user.username }}</strong> - {{ track.title }} - <strong>{{ track.duration | date : 'mm:ss' }}</strong>
+                    </a></li>
+                </div>
+            </div>
+            <div class="panel-footer text-right">
+                <a ng-href="{{ playlist.permalink_url }}" target="_blank">View on SoundCloud</a>
+            </div>
         </section>
     </script>
 
