@@ -118,7 +118,7 @@
         
                 <div class="list-group">
                     <li class="list-group-item m12" ng-repeat="track in playlist.tracks"><a href="" ng-click="player.play(playlist.tracks, $index)" ng-class="{ '': (player.playing || player.paused) != track, 'list-group-item active': (player.playing || player.paused) == track }">
-                        <strong>{{ track.user.username }}</strong> - {{ track.title }} - <strong>{{ track.duration | date : 'mm:ss' }}</strong>
+                        <strong>{{ track.user.username }}</strong> - {{ track.title }} - <strong>{{ track.duration | playTime }}</strong>
                     </a></li>
                 </div>
             </div>
