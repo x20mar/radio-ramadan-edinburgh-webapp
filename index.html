@@ -36,10 +36,26 @@
 
         <div id="shelf-1" snap-drawer>
             <h1>{{Page.menu().MENU}}</h1>
-            <ul class="nav nav-pills nav-stacked">
-                <li snap-close><a href="#"><i class="fa fa-youtube-play"></i> {{Page.menu().LIVE}}</a></li>
-                <li snap-close><a href="#listenagain"><i class="fa fa-music"></i> {{Page.menu().LISTEN_AGAIN}}</a></li>
-                <li snap-close><a href="#schedule"><i class="fa fa-calendar-o"></i> {{Page.menu().SCHEDULE}}</a></li>
+            <ul class="nav nav-pills nav-stacked nav-inverse">
+                <li snap-close>
+                    <a href="#">
+                        <span class="fa-stack fa-3x">
+                            <i class="fa fa-music fa-stack-2x fa-fw"></i>
+                        </span> {{Page.menu().LIVE}}</a>
+                </li>
+                <li snap-close>
+                    <a href="#listenagain">
+                        <span class="fa-stack fa-3x">
+                            <i class="fa fa-repeat fa-stack-2x fa-fw"></i>
+                            <i class="fa fa-play fa-stack-1x fa-fw"></i>
+                        </span> {{Page.menu().LISTEN_AGAIN}}</a>
+                </li>
+                <li snap-close>
+                    <a href="#schedule">
+                        <span class="fa-stack fa-3x">
+                            <i class="fa fa-calendar-o fa-stack-2x fa-fw"></i>
+                        </span> {{Page.menu().SCHEDULE}}</a>
+                </li>
                 <!-- <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a></li> -->
         </div>
 
@@ -47,9 +63,7 @@
 
             <nav class="navbar navbar-default">
                 <div class="container nomargin">
-                    <div class="navbar-header">
-                        <div class="navbar-brand"><button type="button" class="btn btn-default fa fa-bars" snap-toggle="left"></button> {{Page.title()}}</div>
-                    </div>
+                    <button type="button" class="btn btn-default navbar-btn fa fa-bars" snap-toggle="left"></button> {{Page.title()}}
                 </div>
             </nav>
 
@@ -74,11 +88,11 @@
 
         <p>{{ onNext }}</p>
         <audio media-player="mediaPlayer" playlist="audioPlaylist"></audio>
-        <button class="btn btn-lg btn-primary btn-block" ng-click="mediaPlayer.play()" ng-show="!mediaPlayer.playing">
-            <i class="fa fa-play"></i>
+        <button class="btn btn-lg btn-success btn-block" ng-click="mediaPlayer.play()" ng-show="!mediaPlayer.playing">
+        <i class="fa fa-play"></i>
         </button>
-        <button class="btn btn-lg btn-primary btn-block" ng-click="mediaPlayer.stop()" ng-show="mediaPlayer.playing">
-            <i class="fa fa-stop"></i>
+        <button class="btn btn-lg btn-success btn-block" ng-click="mediaPlayer.stop()" ng-show="mediaPlayer.playing">
+        <i class="fa fa-stop"></i>
         </button>
         </div>
     </script>
@@ -88,43 +102,43 @@
         <h1>{{Page.title()}}</h1>
 
         <section plangular="{{soundcloud}}" class="panel panel-default measure-wide wrap mb4 oh rounded">
-            <div class="p-responsive mobile-center">
-                <div class="panel-heading">{{ message }}</div>
-                <div class="panel-body">
-                    <div class="clearfix">
-                        <div class="left mr1 mobile-block">
-                            <a href="" ng-click="player.previous(playlist)" class="btn btn-link ">
-                                <i class="fa fa-step-backward"></i>
-                            </a>
-                            <a href="" ng-click="player.playPlaylist(playlist)" ng-hide="player.tracks == playlist.tracks && player.playing" class="btn btn-link anim-popin">
-                                <i class="fa fa-play"></i>
-                            </a>
-                            <a href="" ng-click="player.pause()" ng-show="player.tracks == playlist.tracks && player.playing" class="btn btn-link anim-popin">
-                                <i class="fa fa-pause"></i>
-                            </a>
-                            <a href="" ng-click="player.next(playlist)" class="btn btn-link ">
-                                <i class="fa fa-step-forward"></i>
-                            </a>
-                        </div>
-                        <div class="oh mobile-block">
-                            <div class="progress progress-striped active">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="{{ currentTime / duration * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ currentTime / duration * 100}}%;" ng-click="seekTo($event)">
-                                    {{ currentTime / duration * 100 | number:0}}%
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="list-group">
-                    <li class="list-group-item m12" ng-repeat="track in playlist.tracks"><a href="" ng-click="player.play(playlist.tracks, $index)" ng-class="{ '': (player.playing || player.paused) != track, 'list-group-item active': (player.playing || player.paused) == track }">
-                        <strong>{{ track.user.username }}</strong> - {{ track.title }} - <strong>{{ track.duration | playTime }}</strong>
-                    </a></li>
-                </div>
-            </div>
-            <div class="panel-footer text-right">
-                <a ng-href="{{ playlist.permalink_url }}" target="_blank">View on SoundCloud</a>
-            </div>
+        <div class="p-responsive mobile-center">
+        <div class="panel-heading">{{ message }}</div>
+        <div class="panel-body">
+        <div class="clearfix">
+        <div class="left mr1 well btn-group btn-group-justified">
+        <a href="" ng-click="player.previous(playlist)" class="btn btn-success ">
+        <i class="fa fa-step-backward"></i>
+        </a>
+        <a href="" ng-click="player.playPlaylist(playlist)" ng-hide="player.tracks == playlist.tracks && player.playing" class="btn btn-success anim-popin">
+        <i class="fa fa-play"></i>
+        </a>
+        <a href="" ng-click="player.pause()" ng-show="player.tracks == playlist.tracks && player.playing" class="btn btn-success anim-popin">
+        <i class="fa fa-pause"></i>
+        </a>
+        <a href="" ng-click="player.next(playlist)" class="btn btn-success ">
+        <i class="fa fa-step-forward"></i>
+        </a>
+        </div>
+        <div class="oh well">
+        <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ currentTime / duration * 100}}" aria-valuemin="0" aria-valuemax="100" style="width: {{ currentTime / duration * 100}}%;" ng-click="seekTo($event)">
+        {{ currentTime / duration * 100 | number:0}}%
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <div class="list-group">
+        <li class="list-group-item m12" ng-repeat="track in playlist.tracks"><a href="" ng-click="player.play(playlist.tracks, $index)" ng-class="{ 'list-group-item-success-link': (player.playing || player.paused) != track, 'list-group-item list-group-item-success': (player.playing || player.paused) == track }">
+        <strong>{{ track.user.username }}</strong> - {{ track.title }} - <strong>{{ track.duration | playTime }}</strong>
+        </a></li>
+        </div>
+        </div>
+        <div class="panel-footer text-right">
+        <a ng-href="{{ playlist.permalink_url }}" target="_blank">View on SoundCloud</a>
+        </div>
         </section>
     </script>
 

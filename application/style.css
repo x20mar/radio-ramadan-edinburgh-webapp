@@ -2,9 +2,23 @@
 @import url("../libs/font-awesome-4.0.3/css/font-awesome.min.css");
 @import url("../libs/angularjs-1.2.16/angular-snap.min.css");
 @import url("../libs/fullcalendar-1.6.4/fullcalendar.css");
+
+* {
+    box-sizing: content-box;
+}
+
 html, body, #content {
   height: 100%;
   width: 100%;
+  background-image: url("img/background.png");
+}
+
+.jumbotron {
+    background-color: #fff;
+}
+
+#shelf-1 {
+    background-image: url("img/snap-background.png")
 }
  
 #content {
@@ -41,3 +55,15 @@ html, body, #content {
 }
 
 .anim-popin { -webkit-animation: popin .1s; }
+
+.nav-inverse a{
+    color: #ffffff;
+}
+
+.nav-inverse a:hover{
+    color: #333;
+}
+
+.list-group-item .list-group-item-success-link{
+    color: #3c763d;
+}
