@@ -3,14 +3,16 @@ var rreConfig = {
     AUDIO_FORMAT: "audio/mp3",
     CAL_SRC: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
     CAL_TIMEZONE: "America/Chicago",
-    SOUNDCLOUD_SET: "http://soundcloud.com/jxnblk/sets/magic-summer"
+    SOUNDCLOUD_SET: "http://soundcloud.com/jxnblk/sets/magic-summer",
+    FACEBOOK_URL: "https://www.facebook.com/radioramadan.edinburgh"
 };
 
 var rreLang = {
     title: {MENU: "Menu",
         LIVE: "Live",
         LISTEN_AGAIN: "Listen Again",
-        SCHEDULE: "Schedule"},
+        SCHEDULE: "Schedule",
+        FACEBOOK: "Facebook"},
     message: {ON_NOW: "On Now",
         ON_NEXT: "On Next",
         LISTEN_AGAIN_TO_PAST_SHOWS: "Listen Again to past shows",
@@ -53,6 +55,9 @@ rreApp.factory('Page', function() {
         menu: function() {
             return menu;
         },
+        config: function() {
+            return rreConfig;
+        },
         setTitle: function(newTitle) {
             title = newTitle;
         }
@@ -81,7 +86,6 @@ rreApp.controller('mainController', function($scope, Page) {
 rreApp.controller('listenagainController', function($scope, Page) {
     Page.setTitle(rreLang.title.LISTEN_AGAIN);
     $scope.message = rreLang.message.LISTEN_AGAIN_TO_PAST_SHOWS;
-    $scope.soundcloud = rreConfig.SOUNDCLOUD_SET;
 });
 
 rreApp.controller('scheduleController', function($scope, Page) {

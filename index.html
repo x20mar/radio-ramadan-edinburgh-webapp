@@ -53,6 +53,12 @@
                             <i class="fa fa-calendar-o fa-stack-2x fa-fw"></i>
                         </span> {{Page.menu().SCHEDULE}}</a>
                 </li>
+                <li snap-close>
+                    <a target="blank" href="{{Page.config().FACEBOOK_URL}}">
+                        <span class="fa-stack fa-1x">
+                            <i class="fa fa-facebook-square fa-stack-2x fa-fw"></i>
+                        </span> {{Page.menu().FACEBOOK}}</a>
+                </li>
                 <!-- <li><a href="#settings"><i class="fa fa-cog"></i> Settings</a></li> -->
         </div>
 
@@ -72,7 +78,7 @@
 
             </div>
 
-            <footer class="text-center">
+            <footer class="text-center well well-sm">
                 <p>Create by <a href="http://omara.li">Omar Ali</a> for Radio Ramadan Edinburgh</p>
             </footer>
 
@@ -98,7 +104,7 @@
         <div class="jumbotron text-center">
         <h1>{{Page.title()}}</h1>
 
-        <section plangular="{{soundcloud}}" class="panel panel-default measure-wide wrap mb4 oh rounded">
+        <section plangular="{{Page.config().SOUNDCLOUD_SET}}" class="panel panel-default measure-wide wrap mb4 oh rounded">
         <div class="p-responsive mobile-center">
         <div class="panel-heading">{{ message }}</div>
         <div class="panel-body">
