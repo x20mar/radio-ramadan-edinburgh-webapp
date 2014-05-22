@@ -12,7 +12,7 @@ var rreLang = {
         LIVE: "Live",
         LISTEN_AGAIN: "Listen Again",
         SCHEDULE: "Schedule",
-        FACEBOOK: "Facebook"},
+        FACEBOOK: "Like"},
     message: {ON_NOW: "On Now",
         ON_NEXT: "On Next",
         LISTEN_AGAIN_TO_PAST_SHOWS: "Listen Again to past shows",
