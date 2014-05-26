@@ -32,15 +32,19 @@ module.exports = function(grunt) {
         }
     },
     ngmin: {
-        controllers: {
+        main: {
             src: ['src/application/main.js'],
             dest: 'temp/main.js'
+        },
+        plangular: {
+            src: ['src/libs/plangular.js'],
+            dest: 'temp/plangular.js'
         },
     },
     uglify: {
         dist: {
             files: {
-                'build/application/compiled.js': ['src/libs/jquery.min.js', 'src/libs/jquery-ui.custom.min.js', 'src/libs/fullcalendar.min.js', 'src/libs/gcal.js', 'src/libs/snap.min.js', 'src/libs/angular.min.js', 'src/libs/angular-bootstrap.min.js', 'src/libs/angular-route.min.js', 'src/libs/angular-snap.min.js', 'src/libs/angular-calendar.js', 'src/libs/angular-media-player.min.js', 'src/libs/plangular.js', 'temp/main.js']
+                'build/application/compiled.js': ['src/libs/jquery.min.js', 'src/libs/jquery-ui.custom.min.js', 'src/libs/fullcalendar.min.js', 'src/libs/gcal.js', 'src/libs/snap.min.js', 'src/libs/angular.min.js', 'src/libs/angular-bootstrap.min.js', 'src/libs/angular-route.min.js', 'src/libs/angular-snap.min.js', 'src/libs/angular-calendar.js', 'src/libs/angular-media-player.min.js', 'temp/plangular.js', 'temp/main.js']
             }
         }
     },
