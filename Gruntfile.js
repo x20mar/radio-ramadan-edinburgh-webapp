@@ -16,12 +16,11 @@ module.exports = function(grunt) {
             ]
         }
     },
-    concat_css: {
-        all: {
-            src: ['src/libs/*.css', 'src/application/*.css'], dest: 'build/application/compiled.css'
-        },
-        options: {
-            compress:true,
+    cssmin: {
+        combine: {
+            files: {
+                'build/application/compiled.css': ['src/libs/*.css', 'src/application/*.css']
+            }
         }
     },
     processhtml: {
@@ -65,11 +64,11 @@ module.exports = function(grunt) {
   // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-concat-css');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compress');
   // Default tasks.
-  grunt.registerTask('default', ['clean', 'copy', 'ngmin', 'uglify', 'concat_css', 'processhtml']);
+  grunt.registerTask('default', ['clean', 'copy', 'ngmin', 'uglify', 'cssmin', 'processhtml']);
 };
