@@ -58,6 +58,63 @@ module.exports = function(grunt) {
             {expand: true, cwd: 'temp/', src: ['compiled.js'], dest: 'build/application', ext: '.gz.js'},
             {expand: true, cwd: 'temp/', src: ['compiled.css'], dest: 'build/application', ext: '.gz.css'}
         ]
+        }
+    },
+cordovacli: {
+    options: {
+        path: 'myHybridAppFolder'
+    },
+    cordova: {
+        options: {
+            command: ['create','platform','plugin','build'],
+            platforms: ['ios','android'],
+            plugins: ['device','dialogs'],
+            path: 'myHybridAppFolder',
+            id: 'io.cordova.hellocordova',
+            name: 'HelloCordova'
+        }
+    },
+    create: {
+        options: {
+            command: 'create',
+            id: 'org.radioramadanedinburgh',
+            name: 'app'
+        }
+    },
+    add_platforms: {
+        options: {
+            command: 'platform',
+            action: 'add',
+            platforms: ['ios', 'android']
+        }
+    },
+    add_plugins: {
+        options: {
+            command: 'plugin',
+            action: 'add',
+            plugins: [
+                'media'
+            ]
+        }
+    },
+    build_ios: {
+        options: {
+            command: 'build',
+            platforms: ['ios']
+        }
+    },
+    build_android: {
+        options: {
+            command: 'build',
+            platforms: ['android']
+        }
+    },
+    emulate_android: {
+        options: {
+            command: 'emulate',
+            platforms: ['android'],
+            args: ['--target','Nexus5']
+        }
     }
 }
   });
@@ -69,6 +126,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-cordovacli');
   // Default tasks.
   grunt.registerTask('default', ['clean', 'copy', 'ngmin', 'uglify', 'cssmin', 'processhtml']);
+  grunt.registerTask('mobile', ['default', 'cordovacli']);
 };
