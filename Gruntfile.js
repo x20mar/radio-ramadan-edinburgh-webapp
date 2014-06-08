@@ -62,7 +62,7 @@ module.exports = function(grunt) {
     },
 cordovacli: {
     options: {
-        path: 'cordiva-build'
+        path: 'cordivacli-build'
     },
     cordova: {
         options: {
