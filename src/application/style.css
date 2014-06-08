@@ -62,3 +62,7 @@ html, body, #content {
 .list-group-item .list-group-item-success-link{
     color: #3c763d;
 }
+
+.fc-header-title h2 {
+    font-size: 14px;
+}
