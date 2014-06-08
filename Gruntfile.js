@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         ]
         }
     },
-    cordovacli-init: {   
+    cordovacli_init: {   
         options: {
             path: 'cordiva-build'
         },
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
             }
         },  
     },    
-    cordovacli-build-android: {
+    cordovacli_build_android: {
         options: {
             path: 'cordiva-build'
         },
@@ -126,6 +126,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-cordovacli');
   // Default tasks.
   grunt.registerTask('default', ['clean', 'copy', 'ngmin', 'uglify', 'cssmin', 'processhtml']);
-  grunt.registerTask('mobile-init', ['cordovacli-init']);
-  grunt.registerTask('mobile-android', ['default', 'cordovacli-build-android']);
+  grunt.registerTask('mobile-init', ['cordovacli_init']);
+  grunt.registerTask('mobile-android', ['default', 'cordovacli_build_android']);
 };
