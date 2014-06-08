@@ -62,15 +62,15 @@ module.exports = function(grunt) {
     },
 cordovacli: {
     options: {
-        path: 'myHybridAppFolder'
+        path: 'cordiva-build'
     },
     cordova: {
         options: {
             command: ['create','platform','plugin','build'],
             platforms: ['android'],
             plugins: ['device','dialogs'],
-            path: 'myHybridAppFolder',
-            id: 'io.cordova.hellocordova',
+            path: 'cordiva-build',
+            id: 'org.radioramadanedinburgh.app',
             name: 'Radio Ramadan'
         }
     },
