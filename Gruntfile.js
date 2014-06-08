@@ -67,11 +67,11 @@ cordovacli: {
     cordova: {
         options: {
             command: ['create','platform','plugin','build'],
-            platforms: ['ios','android'],
+            platforms: ['android'],
             plugins: ['device','dialogs'],
             path: 'myHybridAppFolder',
             id: 'io.cordova.hellocordova',
-            name: 'HelloCordova'
+            name: 'Radio Ramadan'
         }
     },
     create: {
@@ -85,7 +85,7 @@ cordovacli: {
         options: {
             command: 'platform',
             action: 'add',
-            platforms: ['ios', 'android']
+            platforms: ['android']
         }
     },
     add_plugins: {
