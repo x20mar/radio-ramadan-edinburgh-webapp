@@ -62,7 +62,3 @@ html, body, #content {
 .list-group-item .list-group-item-success-link{
     color: #3c763d;
 }
-
-.border-box{
-    box-sizing: border-box;
-}
