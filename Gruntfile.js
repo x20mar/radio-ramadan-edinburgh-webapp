@@ -67,7 +67,7 @@ module.exports = function(grunt) {
             cordova: {
                 options: {
                     command: ['create','platform','plugin','build'],
-                    platforms: ['android'],
+                    platforms: ['android', 'ios'],
                     plugins: ['device','dialogs'],
                     path: 'cordovacli-build',
                     id: 'org.radioramadanedinburgh.app',
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
                 options: {
                     command: 'platform',
                     action: 'add',
-                    platforms: ['android']
+                    platforms: ['android', 'ios']
                 }
             },
             add_plugins: {
@@ -99,6 +99,12 @@ module.exports = function(grunt) {
                 options: {
                     command: 'build',
                     platforms: ['android']
+                }
+            },
+            build_ios: {
+                options: {
+                    command: 'build',
+                    platforms: ['ios']
                 }
             },
             emulate_android: {
@@ -123,5 +129,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['clean', 'copy', 'ngmin', 'uglify', 'cssmin', 'processhtml']);
     grunt.registerTask('mobile-init', ['cordovacli:create', 'cordovacli:add_platforms', 'cordovacli:add_plugins']);
     grunt.registerTask('mobile-build-android', ['default', 'cordovacli:build_android']);
+    grunt.registerTask('mobile-build-ios', ['default', 'cordovacli:build_ios']);
     grunt.registerTask('mobile-emulate-android', ['cordovacli:emulate_android']);
 };
