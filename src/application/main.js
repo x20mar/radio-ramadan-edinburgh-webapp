@@ -2,21 +2,25 @@ var rreConfig = {
     AUDIO_SRC: "http://danosongs.com/music/danosongs.com-orb-of-envisage.mp3",
     AUDIO_FORMAT: "audio/mp3",
     CAL_SRC: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
-    CAL_TIMEZONE: "America/Chicago",
-    SOUNDCLOUD_SET: "http://soundcloud.com/jxnblk/sets/magic-summer",
+    CAL_TIMEZONE: "Europe/London",
+    SOUNDCLOUD_SET: "http://soundcloud.com/radioramadan-edinburgh/sets/radio-ramadan-2014",
     FACEBOOK_URL: "https://www.facebook.com/radioramadan.edinburgh"
 };
 
 var rreLang = {
-    title: {MENU: "Menu",
+    title: {
+        MENU: "Menu",
         LIVE: "Live",
         LISTEN_AGAIN: "Listen Again",
         SCHEDULE: "Schedule",
         FACEBOOK: "Like"},
-    message: {ON_NOW: "On Now",
+    message: {
+        ON_NOW: "On Now",
         ON_NEXT: "On Next",
         LISTEN_AGAIN_TO_PAST_SHOWS: "Listen Again to past shows",
-        COMING_UP: "See what shows are coming up on Radio Ramadan"}
+        COMING_UP: "See what shows are coming up on Radio Ramadan",
+        CLICK_TO_PAY: "Press the button to start listening"
+    }
 };
 
 // create the module and name it rreApp
@@ -71,6 +75,7 @@ rreApp.controller('mainController', function($scope, Page) {
     Page.setTitle(rreLang.title.LIVE);
     $scope.onNow = rreLang.message.ON_NOW + ": " + "Program 1";
     $scope.onNext = rreLang.message.ON_NEXT + ": " + "Program 2";
+    $scope.clickToPlay = rreLang.message.CLICK_TO_PAY;
 
     $scope.snapOpts = {
         disable: 'right'
@@ -119,4 +124,15 @@ rreApp.controller('scheduleController', function($scope, Page) {
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
     $scope.message = rreLang.message.COMING_UP;
-});
+},
+
+rreApp.directive('pgInAppBrowserLink', function () {
+    return function (scope, elem) {
+      elem.bind('click', function (e) {
+        var ref = window.open(encodeURI(elem.attr('href')), '_system', 'location=yes');
+        ref.addEventListener('loadstart', function() { alert(event.url); });
+        e.preventDefault();
+      });
+    };
+  })
+);

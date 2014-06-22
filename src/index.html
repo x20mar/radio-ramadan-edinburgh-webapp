@@ -33,6 +33,7 @@
         <script src="libs/plangular.js"></script>
         <script src="application/main.js"></script>
         <!-- /build -->
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
         
     </head>
 
@@ -62,7 +63,7 @@
                         </span> {{Page.menu().SCHEDULE}}</a>
                 </li>
                 <li snap-close>
-                    <a target="blank" href="{{Page.config().FACEBOOK_URL}}">
+                    <a href="{{Page.config().FACEBOOK_URL}}" pg-in-app-browser-link>
                         <span class="fa-stack fa-1x">
                             <i class="fa fa-facebook-square fa-stack-2x fa-fw"></i>
                         </span> {{Page.menu().FACEBOOK}}</a>
@@ -87,7 +88,7 @@
             </div>
 
             <footer class="text-center well well-sm">
-                <p>Create by <a href="http://omara.li">Omar Ali</a> for Radio Ramadan Edinburgh</p>
+                <p>Create by <a href="http://omara.li" pg-in-app-browser-link>Omar Ali</a> for Radio Ramadan Edinburgh</p>
             </footer>
 
         </div>    
@@ -95,9 +96,9 @@
 
     <script type="text/ng-template" id="home.html">
         <div class="jumbotron text-center">
-        <p>{{ onNow }}</p>
-        <p>{{ onNext }}</p>
+        <p>{{ clickToPlay }}</p>
         <audio media-player="mediaPlayer" playlist="audioPlaylist"></audio>
+        <div class="alert alert-info" ng-show="mediaPlayer.network == 'stalled'"></div>
         <button class="btn btn-lg btn-success btn-block" ng-click="mediaPlayer.play()" ng-show="!mediaPlayer.playing">
         <i class="fa fa-play"></i>
         </button>
@@ -148,7 +149,7 @@
         </div>
         </div>
         <div class="panel-footer text-right">
-        <a ng-href="{{ playlist.permalink_url }}" target="_blank">View on SoundCloud</a>
+        <a href="{{ playlist.permalink_url }}" pg-in-app-browser-link>View on SoundCloud</a>
         </div>
         </section>
     </script>

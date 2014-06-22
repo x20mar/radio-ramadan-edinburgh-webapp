@@ -92,7 +92,7 @@ module.exports = function(grunt) {
                 options: {
                     command: 'plugin',
                     action: 'add',
-                    plugins: ['media']
+                    plugins: ['media','inappbrowser']
                 }
             },      
             build_android: {
