@@ -93,9 +93,9 @@ rreApp.controller('mainController', function($scope, Page) {
     var d = new Date();
     var month_names_short = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var prayerKey = d.getDate() + "-" + month_names_short[d.getMonth()];
-    var timetable = Page.getTimetable(prayerKey);
-    $scope.timetable = timetable;
-    $scope.active = angular.isObject(timetable);
+    var ptimetable = Page.getTimetable(prayerKey);
+    $scope.ptimetable = ptimetable;
+    $scope.active = angular.isObject(ptimetable);
 
     $scope.snapOpts = {
         disable: 'right'

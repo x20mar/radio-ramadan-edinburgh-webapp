@@ -96,32 +96,6 @@
 
     <script type="text/ng-template" id="home.html">
         <div class="jumbotron text-center" ng-if="active == true">
-        <div class="list-group">
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Fajr</h4>
-                <p class="list-group-item-text">{{ timetable.Fajr| date : 'shortTime' }}</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Sunrise</h4>
-                <p class="list-group-item-text">{{ timetable.Sunrise| date : 'shortTime' }}</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Dhur</h4>
-                <p class="list-group-item-text">{{ timetable.Dhur| date : 'shortTime' }}</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Asr</h4>
-                <p class="list-group-item-text">{{ timetable.Asr| date : 'shortTime' }}</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Maghrib</h4>
-                <p class="list-group-item-text">{{ timetable.Maghrib| date : 'shortTime' }}</p>
-            </a>
-            <a href="#" class="list-group-item">
-                <h4 class="list-group-item-heading">Isha</h4>
-                <p class="list-group-item-text">{{ timetable.Isha| date : 'shortTime' }}</p>
-            </a>
-        </div>
         <p>{{ clickToPlay }}</p>
         <audio media-player="mediaPlayer" playlist="audioPlaylist"></audio>
         <button class="btn btn-lg btn-success btn-block" ng-click="mediaPlayer.play()" ng-show="!mediaPlayer.playing">
@@ -130,6 +104,32 @@
         <button class="btn btn-lg btn-success btn-block" ng-click="mediaPlayer.stop()" ng-show="mediaPlayer.playing">
         <i class="fa fa-stop"></i>
         </button>
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Fajr</h4>
+                <p class="list-group-item-text">{{ ptimetable.Fajr * 1000 | date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Sunrise</h4>
+                <p class="list-group-item-text">{{ ptimetable.Sunrise * 1000 | date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Dhur</h4>
+                <p class="list-group-item-text">{{ ptimetable.Dhur * 1000 | date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Asr</h4>
+                <p class="list-group-item-text">{{ ptimetable.Asr * 1000 | date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Maghrib</h4>
+                <p class="list-group-item-text">{{ ptimetable.Maghrib * 1000 | date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Isha</h4>
+                <p class="list-group-item-text">{{ ptimetable.Isha * 1000 | date : 'shortTime' }}</p>
+            </a>
+        </div>
         </div>
         <div class="jumbotron text-center" ng-if="active == false">
         <h2>{{ offAir }}</h2>
