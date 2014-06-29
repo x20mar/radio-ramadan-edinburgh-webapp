@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="org.radioramadanedinburgh" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Radio Ramadan</name>
+    <description>
+        Offical Application for Radio Ramadan Edinburgh
+    </description>
+    <author email="info@radioramadanedinburgh.com" href="http://www.radioramadanedinburgh.com">
+        Radio Ramadan Edinburgh
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <icon src="www/application/img/icon.png" />
+</widget>

@@ -78,7 +78,7 @@ module.exports = function(grunt) {
                 options: {
                     command: 'create',
                     id: 'org.radioramadanedinburgh',
-                    name: 'app'
+                    name: 'Radio Ramadan'
                 }
             },    
             add_platforms: {
