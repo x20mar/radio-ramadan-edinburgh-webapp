@@ -1,7 +1,7 @@
 var rreConfig = {
     AUDIO_SRC: "http://s7.voscast.com:8166/;",
     AUDIO_FORMAT: "audio/mp3",
-    CAL_SRC: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+    CAL_SRC: "http://www.google.com/calendar/feeds/admin%40radioramadanedinburgh.com/public/basic",
     CAL_TIMEZONE: "Europe/London",
     SOUNDCLOUD_SET: "http://soundcloud.com/radioramadan-edinburgh/sets/radio-ramadan-2014",
     FACEBOOK_URL: "https://www.facebook.com/radioramadan.edinburgh"
@@ -19,7 +19,8 @@ var rreLang = {
         ON_NEXT: "On Next",
         LISTEN_AGAIN_TO_PAST_SHOWS: "Listen Again to past shows",
         COMING_UP: "See what shows are coming up on Radio Ramadan",
-        CLICK_TO_PAY: "Press the button to start listening"
+        CLICK_TO_PAY: "Press the button to start listening",
+        OFF_AIR: "We're off air for this year. See you next year"
     }
 };
 
@@ -68,12 +69,13 @@ rreApp.factory('Page', function() {
             title = newTitle;
         },
         getTimetable: function(pKey){
-            angular.forEach(objectToIterate, function(tt, index) {
-                if(tt.Key === pKey){
-                    return tt;
+            var today = null;
+            angular.forEach(timetable, function(tt, index) {
+                if(tt.Key == pKey){
+                    today = tt;
                 }
             });
-            return null;
+            return today;
         }
     };
 });
@@ -86,11 +88,14 @@ rreApp.controller('mainController', function($scope, Page) {
     $scope.onNow = rreLang.message.ON_NOW + ": " + "Program 1";
     $scope.onNext = rreLang.message.ON_NEXT + ": " + "Program 2";
     $scope.clickToPlay = rreLang.message.CLICK_TO_PAY;
+    $scope.offAir = rreLang.message.OFF_AIR;
 
     var d = new Date();
     var month_names_short = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var prayerKey = d.getDate() + "-" + month_names_short[d.getMonth()];
-    $scope.timetable = Page.getTimetable(prayerKey);
+    var timetable = Page.getTimetable(prayerKey);
+    $scope.timetable = timetable;
+    $scope.active = angular.isObject(timetable);
 
     $scope.snapOpts = {
         disable: 'right'

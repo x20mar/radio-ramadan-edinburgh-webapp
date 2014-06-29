@@ -33,7 +33,7 @@
         <script src="libs/plangular.js"></script>
         <script src="application/main.js"></script>
         <!-- /build -->
-        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <!-- script type="text/javascript" charset="utf-8" src="cordova.js"></script -->
         
     </head>
 
@@ -95,16 +95,44 @@
     </body>
 
     <script type="text/ng-template" id="home.html">
-        <div class="jumbotron text-center">
+        <div class="jumbotron text-center" ng-if="active == true">
+        <div class="list-group">
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Fajr</h4>
+                <p class="list-group-item-text">{{ timetable.Fajr| date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Sunrise</h4>
+                <p class="list-group-item-text">{{ timetable.Sunrise| date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Dhur</h4>
+                <p class="list-group-item-text">{{ timetable.Dhur| date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Asr</h4>
+                <p class="list-group-item-text">{{ timetable.Asr| date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Maghrib</h4>
+                <p class="list-group-item-text">{{ timetable.Maghrib| date : 'shortTime' }}</p>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">Isha</h4>
+                <p class="list-group-item-text">{{ timetable.Isha| date : 'shortTime' }}</p>
+            </a>
+        </div>
         <p>{{ clickToPlay }}</p>
         <audio media-player="mediaPlayer" playlist="audioPlaylist"></audio>
-        <div class="alert alert-info" ng-show="mediaPlayer.network == 'stalled'"></div>
         <button class="btn btn-lg btn-success btn-block" ng-click="mediaPlayer.play()" ng-show="!mediaPlayer.playing">
         <i class="fa fa-play"></i>
         </button>
         <button class="btn btn-lg btn-success btn-block" ng-click="mediaPlayer.stop()" ng-show="mediaPlayer.playing">
         <i class="fa fa-stop"></i>
         </button>
+        </div>
+        <div class="jumbotron text-center" ng-if="active == false">
+        <h2>{{ offAir }}</h2>
         </div>
     </script>
 
