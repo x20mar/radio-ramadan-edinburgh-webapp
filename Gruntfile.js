@@ -98,13 +98,15 @@ module.exports = function(grunt) {
             build_android: {
                 options: {
                     command: 'build',
-                    platforms: ['android']
+                    platforms: ['android'],
+                    args: ['--release']
                 }
             },
             build_ios: {
                 options: {
                     command: 'build',
-                    platforms: ['ios']
+                    platforms: ['ios'],
+                    args: ['--release']
                 }
             },
             emulate_android: {
