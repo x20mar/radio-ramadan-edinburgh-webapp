@@ -1,6 +1,6 @@
 {
   "name": "radio-ramadan-edinburgh-webapp",
-  "version": "0.0.0",
+  "version": "1.5.0",
   "description": "Mobile Web Application for Radio Ramadan Edinburgh",
   "main": "Gruntfile.js",
   "scripts": {
